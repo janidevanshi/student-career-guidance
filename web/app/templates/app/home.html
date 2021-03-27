@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- <link rel="stylesheet" type='text/css' href="css/style.css"> -->
+<html lang="en">
+
+<head>
+    <link href="{% static './css/style.css' %}" rel="stylesheet"
+        type="text/css">
+
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <header class="header">
+
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a class="active" href="home">Home</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="faq">FAQ</a></li>
+                <li style="float: right;"><a href="login">Login/Signup</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+</head>
+
+
+<body class="rest">
+    {% block content %}
+
+    <div>
+
+        <h1 class="head">
+            Student Career<br> Guidance Welcomes You
+        </h1>
+        <p class="para">
+            Guiding path to future...
+        </p>
+        <form class="form">
+            <input type="text" placeholder="Search here..." size="50" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="image">
+        <img class="img" src="{% static 'images\back.jpg' %}">
+        <h3>"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."<br>-Thomas A. Edison</h3>
+    </div>
+        {% endblock %}
+</body>
+
+</html>

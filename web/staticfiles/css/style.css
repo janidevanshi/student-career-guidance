@@ -46,26 +46,31 @@ li a:hover {
 
 .head {
   color: rgb(219, 118, 50);
+  font-size: 60px;
 }
 
 .para {
   font-weight: bold;
+  font-size: 30px;
 }
 
 .form button {
   overflow: visible;
-  height: 30px;
+  height: 40px;
   border: 0;
   color: #fff;
   text-transform: uppercase;
   background: #d12626;
 }
+.form input {
+  height: 40px;
+}
 
 .img {
   float: left;
   position: relative;
-  height: 320px;
-  width: 400px;
+  height: 420px;
+  width: 500px;
   display: block;
   margin: 0 50px 0 0;
   padding: 0;
@@ -78,18 +83,33 @@ li a:hover {
   margin: 50px auto 50px;
   overflow: hidden;
   padding: 0;
-  width: 900px;
+  width: 1500px;
 }
 h3 {
   color: #1b2130;
-  padding: 60px 50px 50px 50px;
+  padding: 150px 50px 50px 50px;
   text-align: justify;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1500px) {
   .img {
-    width: auto;
+    height: 400px;
+    width: 500px;
   }
   .image {
-    width: auto;
+    width: 1000px;
+    height: 400px;
+  }
+  h3 {
+    padding: 100px 50px 50px 50px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .img {
+    width: 500px;
+    margin: 0 0 0 0;
+  }
+  .image {
+    width: 500px;
+    height: auto;
   }
 }

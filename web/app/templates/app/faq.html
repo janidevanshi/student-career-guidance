@@ -16,27 +16,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <header class="header">
-
+    <div>
+        <nav>
+            <ul class="navigation">
+                <li><a href="../home">Home</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <li><a href="../contact">Contact</a></li>
+                <li><a class="active" href="../faq">FAQ</a></li>
+                <li style="float: right;"><a href="../login">Login/Signup</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <nav>
-        <ul class="navigation">
-            <li><a href="home">Home</a></li>
-            <li><a href="blog">Blog</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li><a class="active" href="faq">FAQ</a></li>
-            <li style="float: right;"><a href="login">Login/Signup</a>
-            </li>
-        </ul>
-        </div>
-    </nav>
 </header>
 </head>
 
-<body>
+<body class="rest">
     {% block content %}
-    <h1>
-        FAQ Page
-    </h1>
+    <div id = "fa">
+        
+        <form class="form">
+            <input type="text" placeholder="Search here..." size="50" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <h4>
+            What is blockchain software?
+    </h4>
+    <p>
+        
+        Blockchain software is like any other software. The first of its kind was Bitcoin, which was released as <a href = "https://opensource.com/resources/what-open-source">open source software</a>, making it available to anyone to use or change. There are a wide variety of efforts across the blockchain ecosystem to improve upon Bitcoin’s original software. Ethereum has its own open source blockchain software. Some blockchain software is proprietary and not available to the public.
+    </p>
+    <h4>
+
+        What is a blockchain application?
+    </h4>
+    <p>
+        Blockchain applications are comparable to conventional software applications, except they implement a decentralized architecture and cryptoeconomic systems to increase security, foster trust, tokenize assets, and design new network incentives. Here are over 90 <a href="https://www.simplilearn.com/tutorials/blockchain-tutorial/what-is-ethereum">Ethereum apps </a> that are currently being used across the Ethereum blockchain ecosystem, from prediction markets to smart legal agreements. 
+    </p>
+    <h4>
+
+        How is cloud computing different from utility, on-demand and grid computing?
+    </h4>
+    <p>
+        
+        
+        Cloud by its nature is "on-demand" and includes attributes previously associated with utility and grid models. Grid computing is the ability to harness large collections of independent compute resources to perform large tasks, and utility is metered consumption of IT services, says Kristof Kloeckner, the cloud computing software chief at IBM. The coming together of these attributes is making the cloud today's most "exciting IT delivery paradigm," he says.
+    </p>
+    <h4>
+
+        Is cloud computing the same as software-as-a-service?
+    </h4>
+    <p>
+
+        
+        You might say <a href="https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service">software-as-a-service </a> kicked off the whole push toward cloud computing by demonstrating that IT services could be easily made available over the Web. While SaaS vendors originally did not use the word cloud to describe their offerings, analysts now consider SaaS to be one of several subsets of the cloud computing market.
+        
+    </p>
+    <h4>
+
+        What is deep learning and how is it different from machine learning?
+    </h4>
+    <p>
+
+        <a href="https://machinelearningmastery.com/what-is-deep-learning/">Deep learning</a>, also known as deep neural networks are set algorithms inspired by working principals of human brain where it learns to identify patterns in data for decision making.
+        
+        Deep learning is a sub field of representation learning, which in fact, is a subfield of machine learning.
+        
+        It takes input data, throughout hidden layers it learns the representation of data to deliver a prediction or result. Layer by layer, it extracts high-level features from the previous layer data.
+        
+        For image processing, initial layers convolutional neural network identifies edges, shapes, and then objects.
+        
+        Unlike traditional machine learning algorithms, deep learning algorithms automatically extract features from raw data that makes them efficient.
+        
+    </p>
+    <h4>
+
+        What are some algorithms that every machine learning engineer should know?
+    </h4>
+    <p>
+
+        Learning algorithms helps you solve real-world problems without or with minimal human intervention. Some of the popular algorithms you must know include –
+        <ul>
+                
+            <li>Apriori Algorithm</li>
+            <li>Artificial Neural Networks</li>
+            <li>K Means Clustering Algorithm</li>
+            <li>Linear Regression</li>
+            <li>Logistic Regression</li>
+            <li>Naïve Bayes Classifier Algorithm</li>
+            <li> Support Vector Machine Algorithm</li>
+                
+        </ul>
+    </p>
+    </div>
     {% endblock %}
 </body>
 

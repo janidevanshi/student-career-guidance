@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 300;
 }
 
 ul {
@@ -74,11 +75,12 @@ li a:hover {
   display: block;
   margin: 0 50px 0 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .image {
   background: #fff;
-  border: 4px solid #5fb3bd;
+  border: 4px solid hsl(186, 42%, 56%);
   border-radius: 4px;
   margin: 50px auto 50px;
   overflow: hidden;
@@ -90,8 +92,22 @@ h3 {
   padding: 150px 50px 50px 50px;
   text-align: justify;
 }
+.body {
+  padding: 50px;
+}
+h2 {
+  padding: 30px;
+}
+img {
+  padding-top: 50px;
+  height: auto;
+  width: 40%;
+}
+p {
+  text-align: justify;
+}
 @media only screen and (max-width: 1500px) {
-  .img {
+  .rest .img {
     height: 400px;
     width: 500px;
   }
@@ -99,7 +115,7 @@ h3 {
     width: 1000px;
     height: 400px;
   }
-  h3 {
+  .rest h3 {
     padding: 100px 50px 50px 50px;
   }
 }
@@ -112,4 +128,22 @@ h3 {
     width: 500px;
     height: auto;
   }
+}
+
+@media screen and (max-width: 500px) {
+  .column img {
+    width: 100%;
+  }
+}
+.rest img {
+  width: 40%;
+  height: auto;
+  float: left;
+  margin: 30px;
+  padding-left: 150px;
+}
+.rest h3 {
+  margin: 30px;
+  padding-right: 150px;
+  color: #1b2130;
 }

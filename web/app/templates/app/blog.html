@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <link href="{% static './css/style.css' %}" rel="stylesheet"
+        type="text/css">
+
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <header class="header">
+
+    </div>
+    <nav>
+        <ul class="navigation">
+            <li><a href="home">Home</a></li>
+            <li><a class="active" href="blog">Blog</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="faq">FAQ</a></li>
+            <li style="float: right;"><a href="login">Login/Signup</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+</header>
+</head>
+
+<body>
+    {% block content %}
+    <div class="body">
+        <ul>
+            <li>
+                <div class="featured">
+                    <img src="{% static 'images/block_chain.jpg' %}" alt=""/>
+                </div>
+                <div>
+                    <h2>Block Chain</h2>
+                    <p>A blockchain is a type of database. To be able to understand blockchain, it helps to first understand what a database actually is. 
+
+
+                        A database is a collection of information that is stored electronically on a computer system. Information, or data, in databases is typically structured in table format to allow for easier searching and filtering for specific information. What is the difference between someone using a spreadsheet to store information rather than a database?
+                        
+                        
+                        Spreadsheets are designed for one person, or a small group of people, to store and access limited amounts of information. In contrast, a database is designed to house significantly larger amounts of information that can be accessed, filtered, and manipulated quickly and easily by any number of users at once.
+                        
+                        Large databases achieve this by housing data on servers that are made of powerful computers. These servers can sometimes be built using hundreds or thousands of computers in order to have the computational power and storage capacity necessary for many users to access the database simultaneously. While a spreadsheet or database may be accessible to any number of people, it is often owned by a business and managed by an appointed individual that has complete control over how it works and the data within it.</p>
+                </div>
+            </li>
+            
+            <li>
+                <div>
+                    <img class="featured" src="{% static 'images/cloudcomputing.jpg' %}" alt=""/>
+                </div>
+                <div>
+                    <h2>Cloud Computing</h2>
+                    <p>Cloud computing is the delivery of different services through the Internet. These resources include tools and applications like data storage, servers, databases, networking, and software.
+
+
+                        Rather than keeping files on a proprietary hard drive or local storage device, cloud-based storage makes it possible to save them to a remote database. As long as an electronic device has access to the web, it has access to the data and the software programs to run it.
+                        
+                        
+                        Cloud computing is a popular option for people and businesses for a number of reasons including cost savings, increased productivity, speed and efficiency, performance, and security.
+                        Cloud computing can be both public and private. Public cloud services provide their services over the Internet for a fee. Private cloud services, on the other hand, only provide services to a certain number of people. These services are a system of networks that supply hosted services. There is also a hybrid option, which combines elements of both the public and private services.</p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="featured">
+                        <img src="{% static 'images/machinelearning.jpg' %}" alt=""/>
+                </div>
+                <div>
+                    <h2>Machine learning</h2>
+                    <p>Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed. Machine learning focuses on the development of computer programs that can access data and use it to learn for themselves.
+
+                        The process of learning begins with observations or data, such as examples, direct experience, or instruction, in order to look for patterns in data and make better decisions in the future based on the examples that we provide. The primary aim is to allow the computers learn automatically without human intervention or assistance and adjust actions accordingly.
+                        
+                        But, using the classic algorithms of machine learning, text is considered as a sequence of keywords; instead, an approach based on semantic analysis mimics the human ability to understand the meaning of a text.</p>
+                </div>
+            </li>
+            
+            
+        </ul>
+    </div>
+</div>
+</body>
+</html>  
+    {% endblock %}
+</body>
+
+</html>

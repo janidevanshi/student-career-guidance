@@ -7,6 +7,10 @@ def home_view(request, *args, **kwargs):
     return render(request, "app/home.html", {})
 
 
+def blog_view(request, *args, **kwargs):
+    return render(request, "app/blog.html", {})
+
+
 def contact_view(request, *args, **kwargs):
     return render(request, "app/contact.html", {})
 

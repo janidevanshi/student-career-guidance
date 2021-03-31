@@ -32,11 +32,11 @@
 </header>
 </head>
 
-<body class="rest">
+<body id="rest">
     {% block content %}
     <div class="body">
         <ul>
-            <li>
+            <li class="blog">
                 <div class="featured">
                     <img src="{% static 'images/block_chain.jpg' %}" alt=""/>
                 </div>
@@ -54,7 +54,7 @@
                 </div>
             </li>
             
-            <li>
+            <li class="blog">
                 <div>
                     <img class="featured" src="{% static 'images/cloudcomputing.jpg' %}" alt=""/>
                 </div>
@@ -70,8 +70,8 @@
                         Cloud computing can be both public and private. Public cloud services provide their services over the Internet for a fee. Private cloud services, on the other hand, only provide services to a certain number of people. These services are a system of networks that supply hosted services. There is also a hybrid option, which combines elements of both the public and private services.</p>
                 </div>
             </li>
-            
-            <li>
+            <br>
+            <li class="blog">
                 <div class="featured">
                         <img src="{% static 'images/machinelearning.jpg' %}" alt=""/>
                 </div>

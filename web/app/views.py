@@ -21,3 +21,7 @@ def faq_view(request, *args, **kwargs):
 
 def login_view(request, *args, **kwargs):
     return render(request, "app/login.html", {})
+
+
+def register_view(request, *args, **kwargs):
+    return render(request, "app/register.html", {})

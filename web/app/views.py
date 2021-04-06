@@ -12,16 +12,10 @@ def blog_view(request, *args, **kwargs):
 
 
 def contact_view(request, *args, **kwargs):
+    if request.method == 'POST':
+        print('We are using post request')
     return render(request, "app/contact.html", {})
 
 
 def faq_view(request, *args, **kwargs):
     return render(request, "app/faq.html", {})
-
-
-def login_view(request, *args, **kwargs):
-    return render(request, "app/login.html", {})
-
-
-def register_view(request, *args, **kwargs):
-    return render(request, "app/register.html", {})

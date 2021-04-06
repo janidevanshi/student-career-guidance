@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(243, 243, 243);
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .header ul li {
@@ -49,12 +49,12 @@ body {
 
 .rest .head {
   color: rgb(219, 118, 50);
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .rest .para {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .rest .form button {
@@ -73,8 +73,8 @@ body {
 .rest .img {
   float: left;
   position: relative;
-  height: 420px;
-  width: 500px;
+  height: 380px;
+  width: 420px;
   display: block;
   margin: 0 50px 0 0;
   padding: 0;
@@ -88,11 +88,11 @@ body {
   margin: 50px auto 50px;
   overflow: hidden;
   padding: 0;
-  width: 1500px;
+  width: 1200px;
 }
 .rest h3 {
   color: #1b2130;
-  padding: 150px 50px 50px 50px;
+  padding: 75px 50px 50px 50px;
   text-align: justify;
 }
 .rest .body {
@@ -101,9 +101,9 @@ body {
 .rest h2 {
   padding: 30px;
 }
-.rest img {
+.rest > ul li img {
   height: auto;
-  width: 40%;
+  width: 30%;
 }
 .rest p {
   text-align: justify;
@@ -112,30 +112,40 @@ body {
   display: block;
   float: left;
 }
-.rest > ul li h2 {
+.rest > ul li h5 {
+  padding-top: 30px;
   padding-right: 150px;
 }
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1200px) {
   .rest .img {
-    height: 400px;
-    width: 500px;
+    height: 300px;
+    width: 400px;
   }
-  .image {
-    width: 1000px;
-    height: 400px;
+  .rest .image {
+    width: 900px;
+    height: 300px;
   }
   .rest h3 {
-    padding: 100px 50px 50px 50px;
+    /* padding-top: 0%;
+    padding-right: 0%; */
+    text-align: justify;
+    font-size: 20px;
+    padding: 00px 0px 0px 0px;
   }
 }
-@media only screen and (max-width: 1000px) {
-  .img {
+@media only screen and (max-width: 900px) {
+  .rest .img {
     width: 500px;
     margin: 0 0 0 0;
   }
-  .image {
+  .rest .image {
     width: 500px;
     height: auto;
+  }
+  .rest > ul li img {
+    height: auto;
+    width: 40%;
+    padding: 0%;
   }
 }
 
@@ -310,14 +320,14 @@ body {
   padding-right: 150px;
   color: #1b2130;
   text-align: justify;
-  font-size: 40px;
+  font-size: 30px;
 }
 #rest p {
   margin: 30px;
   padding-right: 150px;
   color: #1b2130;
   text-align: justify;
-  font-size: 20px;
+  font-size: 17px;
 }
 #rest .body ul li {
   display: block;
@@ -335,6 +345,9 @@ body {
     padding-left: 0%;
     margin: 2%;
   }
+  #rest p {
+    padding-right: 0%;
+  }
 }
 
 #fa {
@@ -342,13 +355,13 @@ body {
 }
 #fa h4 {
   padding-top: 30px;
-  font-size: 40px;
+  font-size: 25px;
 }
 #fa p {
-  font-size: 30px;
+  font-size: 17px;
 }
 #fa li {
-  font-size: 25px;
+  font-size: 17px;
 }
 
 @media screen and (max-width: 1300px) {
@@ -366,11 +379,11 @@ body {
 }
 
 #contact h1 {
-  font-size: 50px;
+  font-size: 40px;
   color: hsl(186, 93%, 23%);
 }
 #contact h5 {
-  font-size: 30px;
+  font-size: 20px;
 }
 #contact .container h1 {
   color: black;
@@ -381,7 +394,7 @@ body {
   font-weight: 700;
 }
 #contact .container input[type="text"],
-#contact .container select,
+#contact .container input[type="email"],
 #contact .container textarea {
   width: 100%;
   padding: 12px;
@@ -389,7 +402,7 @@ body {
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   resize: vertical;
 }
 
@@ -400,6 +413,7 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 #contact .container input[type="submit"]:hover {
@@ -409,61 +423,5 @@ body {
 .container {
   border-radius: 5px;
   background-color: hsl(186, 42%, 56%);
-  padding: 20px;
+  padding: 0px;
 }
-
-/* body #register,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: #7abecc !important;
-}
-#register.user_card {
-  width: 350px;
-  margin-top: auto;
-  margin-bottom: auto;
-  background: #74cfbf;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 5px;
-}
-
-#register .form_container {
-  margin-top: 20px;
-}
-
-#register #form-title {
-  color: #fff;
-}
-#register .login_btn {
-  width: 100%;
-  background: #33ccff !important;
-  color: white !important;
-}
-#register .login_btn:focus {
-  box-shadow: none !important;
-  outline: 0px !important;
-}
-#register .login_container {
-  padding: 0 2rem;
-}
-#register .input-group-text {
-  background: #f7ba5b !important;
-  color: white !important;
-  border: 0 !important;
-  border-radius: 0.25rem 0 0 0.25rem !important;
-}
-#register .input_user,
-#register .input_pass:focus {
-  box-shadow: none !important;
-  outline: 0px !important;
-} */

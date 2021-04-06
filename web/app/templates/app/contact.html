@@ -1,76 +1,86 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link
+      href="{% static './css/style.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-<head>
-    <link href="{% static './css/style.css' %}" rel="stylesheet"
-        type="text/css">
-
-    <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <header class="header">
-
-    </div>
-    <nav>
-        <ul class="navigation">
+      <div>
+        <nav>
+          <ul class="navigation">
             <li><a href="../home">Home</a></li>
             <li><a href="../blog">Blog</a></li>
             <li><a class="active" href="../contact">Contact</a></li>
             <li><a href="../faq">FAQ</a></li>
-            <li style="float: right;"><a href="../login">Login/Signup</a>
-            </li>
-        </ul>
-        </div>
-    </nav>
-</header>
-</head>
+            <li style="float: right"><a href="../login">Login/Signup</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </head>
 
-<body id="contact">
+  <body id="contact">
     {% block content %}
-    <h1>
-        CONTACT US
-    </h1>
+    <h1>CONTACT US</h1>
     <h5>
-        We would love to hear from you!
-        <br>
-        Send us a question or comment with the form below and we will be in touch with you as soon as possible.
+      We would love to hear from you!
+      <br />
+      Send us a question or comment with the form below and we will be in touch
+      with you as soon as possible.
     </h5>
-    <br>
-    
+    <br />
+
     <div class="container">
-    <h1>Contact Form:</h1>
-  <form>
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Enter your name..." required>
+      <h1>Contact Form:</h1>
+      <form method="POST" action="../contact/">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name..."
+          required
+        />
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Enter your last name..." required>
+        <label for="email">Email address</label>
+        <br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your Email-id..."
+          required
+        />
 
-    <label for="country">Country</label>
-    <select id="country" name="country">
-        <option value="India">India</option>
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-      
-    </select>
+        <br />
+        <label for="subject">Subject</label>
+        <textarea
+          id="content"
+          name="content"
+          placeholder="Write something..."
+          style="height: 100px"
+          required
+        ></textarea>
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px" required></textarea>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
 
-    <input type="submit" value="Submit">
-  </form>
-</div>
-
-</body>
-</html>
     {% endblock %}
-</body>
-
+  </body>
 </html>

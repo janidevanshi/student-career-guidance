@@ -1,4 +1,7 @@
-{% load static %}
+{% extends 'app/base.html' %}
+
+ {% load static %}
+{% comment %}
 <!DOCTYPE html>
 <!-- <link rel="stylesheet" type='text/css' href="css/style.css"> -->
 <html lang="en">
@@ -32,11 +35,11 @@
             </div>
         </nav>
     </header>
-</head>
+</head> {% endcomment %}
+{% block homeactive %}active{% endblock homeactive %}
 
-
-<body class="rest">
     {% block content %}
+<body class="rest">
 
     <div>
 

@@ -149,11 +149,11 @@ body {
   }
 }
 
-@media screen and (max-width: 500px) {
-  .column img {
-    width: 100%;
-  }
-}
+/* @media screen and (max-width: 500px) {
+    .column img {
+      width: 100%;
+    }
+  } */
 .rest img {
   width: 40%;
   height: auto;
@@ -166,143 +166,6 @@ body {
   padding-right: 150px;
   color: #1b2130;
 }
-/* .navigation {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 300;
-}
-.rest body {
-  padding-top: 50px;
-}
-.header ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(243, 243, 243);
-  font-size: 25px;
-}
-
-.header ul li {
-  float: left;
-}
-
-.header ul li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 5px 10px;
-  text-decoration: none;
-}
-
-.header ul li a:hover {
-  background-color: lavender;
-  color: rgb(21, 21, 196);
-}
-
-.active {
-  font-weight: 650;
-}
-
-.rest {
-  padding-top: 50px;
-  background-color: rgb(243, 243, 243);
-}
-
-.rest .head,
-.rest .para,
-.rest .form {
-  text-align: center;
-}
-
-.rest .head {
-  color: rgb(219, 118, 50);
-  font-size: 60px;
-}
-
-.rest .para {
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.rest .form button {
-  overflow: visible;
-  height: 40px;
-  border: 0;
-  color: #fff;
-  text-transform: uppercase;
-  background: #d12626;
-}
-.rest .form input {
-  height: 40px;
-  width: 50%;
-}
-
-.rest .img {
-  float: left;
-  position: relative;
-  height: 420px;
-  width: 500px;
-  display: block;
-  margin: 0 50px 0 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.rest .image {
-  background: #fff;
-  border: 4px solid hsl(186, 42%, 56%);
-  border-radius: 4px;
-  margin: 50px auto 50px;
-  overflow: hidden;
-  padding: 0;
-  width: 1500px;
-}
-.rest h3 {
-  color: #1b2130;
-  padding: 150px 50px 50px 50px;
-  text-align: justify;
-}
-.rest .body {
-  padding: 50px;
-}
-.rest h2 {
-  padding: 30px;
-}
-.rest img {
-  height: auto;
-  width: 40%;
-}
-.rest p {
-  text-align: justify;
-}
-.rest > ul li {
-  display: block;
-  float: left;
-}
-@media only screen and (max-width: 1500px) {
-  .rest .img {
-    height: 400px;
-    width: 500px;
-  }
-  .image {
-    width: 1000px;
-    height: 400px;
-  }
-  .rest h3 {
-    padding: 100px 50px 50px 50px;
-  }
-}
-@media only screen and (max-width: 1000px) {
-  .img {
-    width: 500px;
-    margin: 0 0 0 0;
-  }
-  .image {
-    width: 500px;
-    height: auto;
-  }
-} */
 
 #rest {
   padding-top: 50px;
@@ -379,13 +242,16 @@ body {
 }
 
 #contact h1 {
-  font-size: 40px;
+  /* padding-top: 1px; */
+  font-size: 35px;
   color: hsl(186, 93%, 23%);
 }
 #contact h5 {
   font-size: 20px;
 }
-#contact .container h1 {
+#contact .container h3 {
+  padding-top: 3px;
+  text-align: center;
   color: black;
 }
 #contact .container form label {
@@ -422,6 +288,6 @@ body {
 
 .container {
   border-radius: 5px;
-  background-color: hsl(186, 42%, 56%);
+  background-color: hsl(186, 53%, 69%);
   padding: 0px;
 }

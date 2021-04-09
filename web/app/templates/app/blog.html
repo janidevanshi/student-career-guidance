@@ -11,7 +11,12 @@
       <ul>
         <li class="blog">
           <div class="featured">
-            <img src="{% static 'images/block_chain.jpg' %}" alt="" />
+          {% for post in allPosts %}
+                <img src = "{{post.image.url}}">
+                <h2>{{post.title}}</h2>
+                <h5>{{post.content}}</h5>
+            {% endfor %}
+            {% comment %} <img src="{% static 'images/block_chain.jpg' %}" alt="" />
           </div>
           <div>
             <h2>Block Chain</h2>
@@ -93,7 +98,7 @@
               of keywords; instead, an approach based on semantic analysis
               mimics the human ability to understand the meaning of a text.
             </p>
-          </div>
+          </div> {% endcomment %}
         </li>
       </ul>
     </div>

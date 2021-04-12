@@ -187,7 +187,7 @@ body {
 }
 #rest p {
   margin: 30px;
-  padding-right: 150px;
+  padding-right: 50px;
   color: #1b2130;
   text-align: justify;
   font-size: 17px;
@@ -200,8 +200,17 @@ body {
   box-sizing: border-box;
   border: 4px solid hsl(186, 42%, 56%);
   border-radius: 10px;
-  margin: 50px 50px 50px 50px;
+  margin: 50px 150px;
   float: center;
+}
+#rest .body ul li div.featured {
+  width: 70%;
+}
+#rest .body ul li a {
+  display: block;
+  float: left;
+  margin-bottom: 20px;
+  margin-left: 45%;
 }
 @media screen and (max-width: 1300px) {
   #rest img {

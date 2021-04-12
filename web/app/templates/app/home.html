@@ -7,7 +7,7 @@
     {% endblock %}
     {% block content %}
 <body class="rest">
-
+    
     <div>
 
         <h1 class="head">
@@ -21,11 +21,24 @@
             <button type="submit">Search</button>
         </form>
     </div>
+    
     <div class="image">
         <img class="img" src="{% static 'images\back.jpg' %}">
         <h3>"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."<br>-Thomas A. Edison</h3>
     </div>
     <ul>
+    <li>
+    
+        {% for post in allPosts %}
+            <img src = "{{post.image.url}}" width = "40%">
+            <h2>{{post.title}}</h2>
+            <h5>{{post.content|truncatechars:100}}</h5>
+            <a class="btn btn-primary btn-sm" href="../blog">Click to read more</a>
+        {% endfor %}
+
+    </li>
+    </ul>
+    {% comment %} <ul>
         <li>
 
             <img src="{% static 'images/block_chain.jpg' %}" alt=""/>
@@ -51,7 +64,7 @@
                     
                 </li>
                     
-                </ul>
+                </ul> {% endcomment %}
                 </body>
         {% endblock %}
 </body>

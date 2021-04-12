@@ -99,21 +99,17 @@ body {
   padding: 50px;
 }
 .rest h2 {
-  padding-top: 25px;
+  padding-top: 50px;
 }
-.rest > ul li img {
+.rest img {
   height: auto;
-  width: 30%;
+  width: 100%;
+  padding-left: 150px;
+  padding-top: 50px;
 }
-.rest p {
-  text-align: justify;
-}
-.rest > ul li {
-  display: block;
-  float: left;
-}
-.rest > ul li h5 {
-  padding-top: 10px;
+
+.rest h5 {
+  padding-top: 25px;
   padding-right: 150px;
 }
 @media only screen and (max-width: 1200px) {
@@ -142,7 +138,7 @@ body {
     width: 500px;
     height: auto;
   }
-  .rest > ul li img {
+  .rest > img {
     height: auto;
     width: 40%;
     padding: 0%;
@@ -154,7 +150,7 @@ body {
       width: 100%;
     }
   } */
-.rest img {
+/* .rest img {
   width: 40%;
   height: auto;
   float: left;
@@ -165,13 +161,27 @@ body {
   margin: 30px;
   padding-right: 150px;
   color: #1b2130;
-}
+} */
 
 #rest {
   padding-top: 50px;
   background-color: rgb(243, 243, 243);
 }
-
+#rest .form {
+  text-align: center;
+}
+#rest .form button {
+  overflow: visible;
+  height: 40px;
+  border: 0;
+  color: #fff;
+  text-transform: uppercase;
+  background: #d12626;
+}
+#rest .form input {
+  height: 40px;
+  width: 50%;
+}
 #rest img {
   width: 40%;
   height: auto;
@@ -180,10 +190,11 @@ body {
 }
 #rest h2 {
   margin: 30px;
-  padding-right: 150px;
+  /* padding-right: 150px; */
   color: #1b2130;
   text-align: justify;
   font-size: 30px;
+  padding-top: 70px;
 }
 #rest p {
   margin: 30px;
@@ -195,13 +206,6 @@ body {
 #rest .body ul li {
   display: block;
   float: left;
-}
-#rest .blog {
-  box-sizing: border-box;
-  border: 4px solid hsl(186, 42%, 56%);
-  border-radius: 10px;
-  margin: 50px 150px;
-  float: center;
 }
 #rest .body ul li div.featured {
   width: 70%;
@@ -299,4 +303,42 @@ body {
   border-radius: 5px;
   background-color: hsl(186, 53%, 69%);
   padding: 0px;
+}
+body.post {
+  background-color: rgb(243, 243, 243);
+}
+body #blogpost {
+  box-sizing: border-box;
+  border: 4px solid hsl(186, 42%, 56%);
+  border-radius: 10px;
+  margin: 50px 150px;
+  float: center;
+}
+/* background-color: rgb(243, 243, 243);
+  box-sizing: border-box;
+  border: 4px solid hsl(186, 42%, 56%);
+  border-radius: 4px;
+  margin: 50px auto 50px;
+  overflow: hidden;
+  padding: 0;
+  width: 1200px;
+  display: block; */
+
+@media only screen and(max-width: 1200px) {
+  body#blogpost {
+    width: 900px;
+  }
+}
+@media only screen and(max-width: 900px) {
+  body#blogpost {
+    width: 500px;
+  }
+}
+
+body #blogpost div img {
+  padding: 50px;
+  width: 30%;
+}
+body #blogpost div#content {
+  padding: 50px;
 }

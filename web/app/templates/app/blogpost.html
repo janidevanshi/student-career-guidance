@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %} {% load static %} {% block title %}
+<title>BlogPost</title>
+{% endblock %} {% block blogactive %}active{% endblock blogactive %} 
+{% block content %}
+<body class="post">
+<div id="blogpost">
+  <div>
+    <img src="{{post.image.url}}" align="right" />
+  </div>
+  <div id ="content">
+    <h2>{{post.title}}</h2>
+    <p>{{post.content}}</p>
+  </div>
+</div>
+</body>
+{% endblock content %}
+</html>

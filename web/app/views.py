@@ -12,12 +12,20 @@ def home_view(request, *args, **kwargs):
     return render(request, "app/home.html", context)
 
 
-def blog_view(request, *args, **kwargs):
+def bloghome_view(request, *args, **kwargs):
     allPosts = Post.objects.all()
     context = {
         'allPosts': allPosts
     }
     return render(request, "app/blog.html", context)
+
+
+def blogpost_view(request, slug):
+    post = Post.objects.filter(slug=slug).first()
+    context = {
+        'post': post
+    }
+    return render(request, 'app/blogpost.html', context)
 
 
 def contact_view(request, *args, **kwargs):
@@ -40,3 +48,9 @@ def contact_view(request, *args, **kwargs):
 
 def faq_view(request, *args, **kwargs):
     return render(request, "app/faq.html", {})
+
+
+def search_view(request):
+    allPosts = Post.objects.all()
+    params = {'allPosts': allPosts}
+    return render(request, "app/search.html", params)

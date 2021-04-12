@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% block blogactive %}active{% endblock blogactive %}
+{% load static %}
+{% block title %}
+    <title>Search results</title>
+    {% endblock %}
+
+{% block content %}
+  <body id="rest">
+    <div class="body">
+      <ul>
+        <li class="blog">
+            <div class="featured">
+            {% for post in allPosts %}
+                <img src = "{{post.image.url}}" width = "40%">
+            {% endfor %} 
+            </div>
+            <div>
+              {% for post in allPosts  %}
+                <h2>{{post.title}}</h2>
+                <p>{{post.content|truncatechars:1200}}</p>
+                <a href="/blog/{{post.slug}}"class="btn btn-primary btn-sm">Click to read more</a>
+              {% endfor %}
+
+            </div>
+          </div> 
+        </li>
+      </ul>
+    </div>
+
+  </body>
+    {% endblock content%}
+</html>

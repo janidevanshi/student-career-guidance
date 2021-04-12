@@ -7,22 +7,31 @@
 
 {% block content %}
   <body id="rest">
+        <form class="form">
+            <input type="text" placeholder="Search here..." size="50" required>
+            <button type="submit">Search</button>
+        </form>
     <div class="body">
       <ul>
-        <li class="blog">
-            <div class="featured">
+        <li class="blog" >
+            <div class="col-md-8 mx-auto">
             {% for post in allPosts %}
                 <img src = "{{post.image.url}}" width = "40%">
-            {% endfor %} 
-            </div>
-            <div>
-              {% for post in allPosts  %}
-                <h2>{{post.title}}</h2>
+              
+                <h2 padding-top="100px">{{post.title}}</h2>
                 <p>{{post.content|truncatechars:1200}}</p>
                 <a href="/blog/{{post.slug}}"class="btn btn-primary btn-sm">Click to read more</a>
-              {% endfor %}
+            {% endfor %}
 
             </div>
+          </div> 
+        </li>
+      </ul>
+    </div>
+
+  </body>
+    {% endblock content%}
+</html>
             {% comment %} <img src="{% static 'images/block_chain.jpg' %}" alt="" />
           </div>
           <div>
@@ -106,11 +115,3 @@
               mimics the human ability to understand the meaning of a text.
             </p>
           {% endcomment %}
-          </div> 
-        </li>
-      </ul>
-    </div>
-
-    {% endblock %}
-  </body>
-</html>

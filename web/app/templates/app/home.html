@@ -1,11 +1,11 @@
 {% extends 'app/base.html' %}
 
- {% load static %}
+{% load static %}
 {% block homeactive %}active{% endblock homeactive %}
 {% block title %}
     <title>Home page</title>
-    {% endblock %}
-    {% block content %}
+{% endblock %}
+{% block content %}
 <body class="rest">
     
     <div>
@@ -16,8 +16,8 @@
         <p class="para">
             Guiding path to future...
         </p>
-        <form class="form">
-            <input type="text" placeholder="Search here..." size="50" required>
+        <form method="GET" action="/search"class="form">
+            <input type="text" placeholder="Search here..." size="50" required name = "" id ="search">
             <button type="submit">Search</button>
         </form>
     </div>
@@ -26,19 +26,21 @@
         <img class="img" src="{% static 'images\back.jpg' %}">
         <h3>"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."<br>-Thomas A. Edison</h3>
     </div>
-    <ul>
-    <li>
     
         {% for post in allPosts %}
-            <img src = "{{post.image.url}}" width = "40%">
+        <div class="row">
+        <div class="col-md-4">
+            <img src = "{{post.image.url}}" width = "100%">
+        </div>
+        <div class="col-md-8">
             <h2>{{post.title}}</h2>
             <h5>{{post.content|truncatechars:100}}</h5>
             <a class="btn btn-primary btn-sm" href="../blog">Click to read more</a>
+        </div>
+        </div>
+        
         {% endfor %}
-
-    </li>
-    </ul>
-    {% comment %} <ul>
+     {% comment %} <ul>
         <li>
 
             <img src="{% static 'images/block_chain.jpg' %}" alt=""/>
@@ -66,7 +68,7 @@
                     
                 </ul> {% endcomment %}
                 </body>
-        {% endblock %}
-</body>
+{% endblock content%}
+
 
 </html>

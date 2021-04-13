@@ -51,6 +51,7 @@ def faq_view(request, *args, **kwargs):
 
 
 def search_view(request):
-    allPosts = Post.objects.all()
-    params = {'allPosts': allPosts}
+    query = request.GET['query']
+    allPosts = Post.objects.filter(content__contains=query)
+    params = {'allPosts': allPosts, 'query': query}
     return render(request, "app/search.html", params)

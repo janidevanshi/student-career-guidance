@@ -18,9 +18,11 @@
             {% for post in allPosts %}
                 <img src = "{{post.image.url}}" width = "40%">
               
-                <h2 padding-top="100px">{{post.title}}</h2>
+                <h2>{{post.title}}</h2>
                 <p>{{post.content|truncatechars:1200}}</p>
-                <a href="/blog/{{post.slug}}"class="btn btn-primary btn-sm">Click to read more</a>
+                <a href="/blog/{{post.slug}}"class="btn btn-primary" margin-bottom="50px">Click to read more</a>
+                <br>
+                <hr style="height: 4px;px;border-width:0;color:gray;background-color:gray;margin-top:50px">
             {% endfor %}
 
             </div>

@@ -1,69 +1,183 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      href="{% static './css/style.css' %}"
-      rel="stylesheet"
-      type="text/css"
-    />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<head>
+  <link href="{% static './css/style.css' %}" rel="stylesheet"
+    type="text/css" />
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block title %}
-    <title>Base page</title>
-    {% endblock %}
-    <header class="header">
-      <div>
-        <nav>
-          <ul class="navigation">
-            <li>
-              <a
-                class="{% block homeactive %}{% endblock homeactive %}"
-                href="../home"
-                >Home</a
-              >
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block title %}
+  <title>Base page</title>
+  {% endblock %}
+  <header class="header">
+    <div>
+      <nav>
+        <ul class="navigation">
+          <li>
+            <a class="{% block homeactive %}{% endblock homeactive %}"
+              href="../home">Home</a>
+          </li>
+          <li>
+            <a class="{% block blogactive %}{% endblock blogactive %}"
+              href="../blog">Blog</a>
+          </li>
+          <li>
+            <a class="{% block contactactive %}{% endblock contactactive %}"
+              href="../contact">Contact</a>
+          </li>
+          <li>
+            <a class="{% block faqactive %}{% endblock faqactive %}"
+              href="../faq">FAQ</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button"
+                data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" style="float: right">
+                Welcome {{request.user}}</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
             </li>
-            <li>
-              <a
-                class="{% block blogactive %}{% endblock blogactive %}"
-                href="../blog"
-                >Blog</a
-              >
-            </li>
-            <li>
-              <a
-                class="{% block contactactive %}{% endblock contactactive %}"
-                href="../contact"
-                >Contact</a
-              >
-            </li>
-            <li>
-              <a
-                class="{% block faqactive %}{% endblock faqactive %}"
-                href="../faq"
-                >FAQ</a
-              >
-            </li>
-            <li style="float: right"><a href="../login">Login/Signup</a></li>
           </ul>
-        </nav>
+          {% else %}
+          <button type="button" class="btn btn-success mr-2" data-toggle="modal"
+            data-target="#signupModal" style="float: right; font-weight: bold">
+            SignUp
+          </button>
+          <!-- Button to trigger SignUp modal -->
+
+          <button type="button" class="btn btn-success mr-2" data-toggle="modal"
+            data-target="#loginModal" style="float: right; font-weight: bold">
+            Login
+          </button>
+          {% endif %}
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+</head>
+
+<body>
+  {% for message in messages %}
+
+  <div class="alert alert-{{message.tags}} alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert"
+      aria-label="close">&times;</a>
+    <strong>Message:</strong> {{message}}
+  </div>
+  {% endfor %}
+  <!-- Signup modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog"
+    aria-labelledby="signupModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalTitle">SignUp Here...</h5>
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/signup" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username"
+                name="username" placeholder="Choose unique Username" required />
+            </div>
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" class="form-control" id="fname" name="fname"
+                placeholder="First Name" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">First Name</label>
+              <input type="text" class="form-control" id="lname" name="lname"
+                placeholder="Last Name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="email"
+                placeholder="name@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="pass1">Password</label>
+              <input type="password" class="form-control" id="pass1"
+                name="pass1" placeholder="Choose your Password" required />
+            </div>
+            <div class="form-group">
+              <label for="pass2">Confirm Password</label>
+              <input type="password" class="form-control" id="pass2"
+                name="pass2" placeholder="Re-Enter your Password" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
       </div>
-    </header>
-  </head>
-  <body>
-    {% block content %}
-    <h1>Base Page</h1>
-    {% endblock content %}
-  </body>
+    </div>
+  </div>
+  <!-- Login modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+    aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalTitle">Login Here...</h5>
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="loginusername"
+                name="loginusername" placeholder="Username" required />
+            </div>
+
+            <div class="form-group">
+              <label for="pass">Password</label>
+              <input type="password" class="form-control" id="loginpass"
+                name="loginpass" placeholder="Enter your Password" required />
+            </div>
+
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block content %}
+  <h1>Base Page</h1>
+  {% endblock content %}
+</body>
+
 </html>

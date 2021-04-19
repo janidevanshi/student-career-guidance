@@ -9,4 +9,7 @@ urlpatterns = [
     path('contact/', views.contact_view, name='contact'),
     path('faq/', views.faq_view, name='faq'),
     path('search/', views.search_view, name='search'),
+    path('signup', views.handleSignup, name='handleSignup'),
+    path('login', views.handlelogin, name='handlelogin'),
+    path('logout', views.handlelogout, name='handlelogout'),
 ]

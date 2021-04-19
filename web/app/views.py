@@ -1,6 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from app.models import Contact, Post
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 
@@ -55,3 +57,63 @@ def search_view(request):
     allPosts = Post.objects.filter(content__contains=query)
     params = {'allPosts': allPosts, 'query': query}
     return render(request, "app/search.html", params)
+
+
+def handleSignup(request):
+    # GEt the post parameters
+    if request.method == 'POST':
+        username = request.POST['username']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+    # Check for error inputs
+        if len(username) > 12:
+            messages.error(request, "Username must be less than 12 characters")
+            return redirect('home')
+        if pass1 != pass2:
+            messages.error(request, "Passwords do not match")
+            return redirect('home')
+        if len(pass1) < 6 and len(pass1) > 10:
+            messages.error(
+                request, "Password must be greater than 6 characters and less than 10 chacters")
+            return redirect('home')
+
+        if not pass1.isalnum():
+            messages.error(
+                request, "Password should only contain letters and numbers")
+            return redirect('home')
+
+    # create the user
+        myuser = User.objects.create_user(username, email, pass1)
+        myuser.first_name = fname
+        myuser.last_name = lname
+        myuser.save()
+
+        messages.success(request, "Your account has been successfully created")
+        return redirect('home')
+    else:
+        return HttpResponse('404-Not Found')
+
+
+def handlelogin(request):
+    if request.method == 'POST':
+        loginusername = request.POST['loginusername']
+        loginpass = request.POST['loginpass']
+
+        user = authenticate(
+            request, username=loginusername, password=loginpass)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Successfully Logged In")
+            return redirect('home')
+        else:
+            messages.error(request, "Invalid Credentials, Please Try Again")
+            return redirect('home')
+
+
+def handlelogout(request):
+    logout(request)
+    messages.success(request, "Successfully Logged Out")
+    return redirect('home')

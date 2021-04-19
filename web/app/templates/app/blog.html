@@ -3,14 +3,10 @@
 {% load static %}
 {% block title %}
     <title>Blog page</title>
-    {% endblock %}
+{% endblock %}
 
 {% block content %}
   <body id="rest">
-        <form class="form">
-            <input type="text" placeholder="Search here..." size="50" required>
-            <button type="submit">Search</button>
-        </form>
     <div class="body">
       <ul>
         <li class="blog" >
@@ -19,10 +15,10 @@
                 <img src = "{{post.image.url}}" width = "40%">
               
                 <h2>{{post.title}}</h2>
-                <p>{{post.content|truncatechars:1200}}</p>
+                <p>{{post.content|truncatechars:1200|urlize|linebreaks}}</p>
                 <a href="/blog/{{post.slug}}"class="btn btn-primary" margin-bottom="50px">Click to read more</a>
                 <br>
-                <hr style="height: 4px;px;border-width:0;color:gray;background-color:gray;margin-top:50px">
+                <hr style="height: 4px;border-width:0;color:gray;background-color:gray;margin-top:50px">
             {% endfor %}
 
             </div>

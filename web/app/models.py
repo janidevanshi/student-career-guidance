@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime, timedelta
+
 
 # Create your models here.
 
@@ -23,3 +25,15 @@ class Contact(models.Model):
 
     def __str__(self):
         return 'Message from ' + self.name + ' - ' + self.email
+
+
+class Faq(models.Model):
+    sno = models.AutoField(primary_key=True)
+    subject = models.CharField(max_length=255)
+    question = models.TextField()
+    answer = models.TextField()
+    timestamp = models.DateTimeField(
+        blank=True, default=datetime.now())
+
+    def __str__(self):
+        return 'Question is about ' + self.subject

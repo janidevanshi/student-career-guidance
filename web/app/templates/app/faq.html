@@ -8,7 +8,18 @@
 
     <body class="rest">
         <div id = "fa">
-            <h4>
+         <form method="GET" action="/faqsearch" class="form">
+            <input type="text" placeholder="Search here..." size="50" required name = "query" id ="query">
+            <button type="submit">Search</button>
+        </form>
+        
+        {% for faq in allFaqs %}
+        <h4>{{faq.question}}</h4>
+        <p>{{faq.answer|urlize|linebreaks}}</p>
+        <p>{{faq.timestamp}}</p>
+        {% endfor %}
+        
+            {% comment %} <h4>
                 What is blockchain software?
             </h4>
             <p>
@@ -76,7 +87,7 @@
                     <li> Support Vector Machine Algorithm</li>
                         
                 </ul>
-            </p>
+            </p> {% endcomment %}
         </div>
         {% endblock content %}
     </body>

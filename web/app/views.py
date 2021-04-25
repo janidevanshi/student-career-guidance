@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from app.models import Contact, Post
+from app.models import Contact, Post, Faq
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -30,6 +30,13 @@ def blogpost_view(request, slug):
     return render(request, 'app/blogpost.html', context)
 
 
+def blogsearch_view(request):
+    query = request.GET['query']
+    allPosts = Post.objects.filter(content__contains=query)
+    params = {'allPosts': allPosts, 'query': query}
+    return render(request, "app/blogsearch.html", params)
+
+
 def contact_view(request, *args, **kwargs):
 
     if request.method == 'POST':
@@ -49,14 +56,19 @@ def contact_view(request, *args, **kwargs):
 
 
 def faq_view(request, *args, **kwargs):
-    return render(request, "app/faq.html", {})
+    allFaqs = Faq.objects.all()
+    context = {
+        'allFaqs': allFaqs
+    }
+    return render(request, "app/faq.html", context)
 
 
-def search_view(request):
+def faqsearch_view(request):
+
     query = request.GET['query']
-    allPosts = Post.objects.filter(content__contains=query)
-    params = {'allPosts': allPosts, 'query': query}
-    return render(request, "app/search.html", params)
+    allFaqs = Faq.objects.filter(question__contains=query)
+    params = {'allFaqs': allFaqs, 'query': query}
+    return render(request, "app/faqsearch.html", params)
 
 
 def handleSignup(request):
@@ -69,6 +81,10 @@ def handleSignup(request):
         pass1 = request.POST['pass1']
         pass2 = request.POST['pass2']
     # Check for error inputs
+        if not email.endswith("com") and not email.endswith("edu"):
+            messages.error(request, "Use email which ends with com or edu")
+            return redirect('home')
+
         if len(username) > 12:
             messages.error(request, "Username must be less than 12 characters")
             return redirect('home')
@@ -85,6 +101,10 @@ def handleSignup(request):
                 request, "Password should only contain letters and numbers")
             return redirect('home')
 
+        # if not email.endswith("com"):
+        #     messages.error(
+        #         request, "Use email which ends with com")
+        #     return redirect('home')
     # create the user
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name = fname

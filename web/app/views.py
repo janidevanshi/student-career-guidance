@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from app.models import Contact, Post, Faq
 from django.contrib import messages
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
@@ -109,7 +109,10 @@ def handleSignup(request):
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name = fname
         myuser.last_name = lname
+        myuser.is_staff = True
         myuser.save()
+        group = Group.objects.get(name='addblogfaq')
+        myuser.groups.add(group)
 
         messages.success(request, "Your account has been successfully created")
         return redirect('home')
